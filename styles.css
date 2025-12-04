@@ -1,18 +1,31 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box
+}
 
 .site-header {
     background: #006994;
     color: #fff;
-    padding: 1rem;
-    position: fixed;
+    position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index:999;
     width: 100%;
     display: flex;
     flex-direction:column;
     align-items: center;
 }
-
+.site-header, nav {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .site-logo {
     height: 120px;
     width: auto;
@@ -50,16 +63,22 @@ nav ul li a:hover {
 .welcome {
     text-align: center;
     margin-top: 0;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 main {
-    padding-top: 140px;
+    position: relative;
+    z-index: 5;
+    padding-top: 0;
     font-family: 'Manrope', sans-serif;
 }
 
 section {
-    margin: 2rem 0;
+    margin: 1rem 0;
+}
+
+main, section {
+    padding: 1rem;
 }
 #saipan, #tinian, #rota {
     font-family: 'Manrope', sans-serif;
@@ -78,14 +97,13 @@ section {
     max-width: 100%;
     display: block;
     flex: 1;
-    border-radius: 8px;
-    gap: 20px;
+    border-radius: 8px
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem;
+    margin: 0 ;
 }
 
 table th, table td {
@@ -98,7 +116,7 @@ table th {
 }
 
 #activities {
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -122,6 +140,9 @@ table th {
     gap: 1rem;
     align-items: center;
     transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .activity-card:hover {
@@ -131,6 +152,7 @@ table th {
 .activity-card img {
     width: 40%;
     border-radius: 8px;
+    pointer-events: none;
 }
 
 .modal {
@@ -181,11 +203,13 @@ footer {
     #saipan img, #tinian img, #rota img {
         width: 100%
     }
-}
 
-@media (max-width:480px) {
-    .site-logo {
+ .site-logo {
         height: 80px;
+    }
+
+    .site-header {
+        position: relative;
     }
 
     .activity-card {
@@ -196,5 +220,9 @@ footer {
 
     .activity-card img {
         width: 100%;
+    }
+
+    main {
+        padding-top: 0;
     }
 }
